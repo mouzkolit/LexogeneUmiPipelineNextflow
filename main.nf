@@ -204,7 +204,6 @@ process feature_count_files {
 
 workflow {
 
-    projectDir '.'
     printBaseDir()
     index_ch = INDEX(params.genome_alignment, params.star_index)
     trial = fastqc(read_ch)
