@@ -173,6 +173,15 @@ process dedup {
     """
 }
 
+process printBaseDir {
+    echo true
+
+    script:
+    """
+    echo 'Base directory: ${baseDir}'
+    """
+}
+
 
 process feature_count_files {
 
@@ -193,17 +202,8 @@ process feature_count_files {
 }
 
 
-process printBaseDir {
-    echo true
-
-    script:
-    """
-    echo 'Base directory: ${baseDir}'
-    """
-}
-
-
 workflow {
+
     baseDir '.'
     printBaseDir()
     index_ch = INDEX(params.genome_alignment, params.star_index)
