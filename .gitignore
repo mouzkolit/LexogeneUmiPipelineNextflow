@@ -1,0 +1,9 @@
+*.gz
+work/
+quality/
+data/
+differential_expression/
+multiqc/
+multiqc_data/
+alignments/
+reference/
