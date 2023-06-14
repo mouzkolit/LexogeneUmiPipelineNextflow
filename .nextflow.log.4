@@ -1,0 +1,104 @@
+Jun-14 14:04:01.900 [main] DEBUG nextflow.cli.Launcher - $> nextflow run mouzkolit/LexogeneUmiPipelineNextflow --genome_alignment ../reference/transcriptome.fa --star_index /reference/STAR --reads '/data/*' --adapter_seq /reference/polyA.fa.gz --ilumina_seq /reference/truseq.fa.gz
+Jun-14 14:04:01.981 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.1
+Jun-14 14:04:02.002 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/data-science/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.2
+Jun-14 14:04:02.008 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jun-14 14:04:02.009 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jun-14 14:04:02.011 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jun-14 14:04:02.018 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jun-14 14:04:02.027 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/data-science/.nextflow/scm
+Jun-14 14:04:02.366 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/data-science/.nextflow/assets/mouzkolit/LexogeneUmiPipelineNextflow/.git/config; branch: main; remote: origin; url: https://github.com/mouzkolit/LexogeneUmiPipelineNextflow.git
+Jun-14 14:04:02.379 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Jun-14 14:04:02.387 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/data-science/.nextflow/assets/mouzkolit/LexogeneUmiPipelineNextflow/.git/config; branch: main; remote: origin; url: https://github.com/mouzkolit/LexogeneUmiPipelineNextflow.git
+Jun-14 14:04:03.182 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/data-science/.nextflow/assets/mouzkolit/LexogeneUmiPipelineNextflow/nextflow.config
+Jun-14 14:04:03.182 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/data-science/Desktop/nextflow_lexogen/nextflow.config
+Jun-14 14:04:03.183 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/data-science/.nextflow/assets/mouzkolit/LexogeneUmiPipelineNextflow/nextflow.config
+Jun-14 14:04:03.183 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/data-science/Desktop/nextflow_lexogen/nextflow.config
+Jun-14 14:04:03.192 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-14 14:04:03.243 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-14 14:04:03.280 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Jun-14 14:04:03.281 [main] INFO  nextflow.cli.CmdRun - Launching `https://github.com/mouzkolit/LexogeneUmiPipelineNextflow` [agitated_goldwasser] DSL2 - revision: 2e3d1ed9a5 [main]
+Jun-14 14:04:03.281 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jun-14 14:04:03.281 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jun-14 14:04:03.283 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/data-science/.nextflow/secrets/store.json
+Jun-14 14:04:03.286 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@8bd076a] - activable => nextflow.secret.LocalSecretsProvider@8bd076a
+Jun-14 14:04:03.328 [main] DEBUG nextflow.Session - Session UUID: 0300c562-44d1-4d64-ae4b-ab3eacd1f57f
+Jun-14 14:04:03.328 [main] DEBUG nextflow.Session - Run name: agitated_goldwasser
+Jun-14 14:04:03.329 [main] DEBUG nextflow.Session - Executor pool size: 8
+Jun-14 14:04:03.337 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-14 14:04:03.352 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.04.1 build 5866
+  Created: 15-04-2023 06:51 UTC (08:51 CEST)
+  System: Linux 5.15.0-73-generic
+  Runtime: Groovy 3.0.16 on OpenJDK 64-Bit Server VM 20.0.1+9-FR
+  Encoding: UTF-8 (UTF-8)
+  Process: 2321160@datascience-desktop [127.0.1.1]
+  CPUs: 8 - Mem: 62.7 GB (33.5 GB) - Swap: 2 GB (2 GB)
+Jun-14 14:04:03.362 [main] DEBUG nextflow.Session - Work-dir: /home/data-science/Desktop/nextflow_lexogen/work [ext2/ext3]
+Jun-14 14:04:03.362 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/data-science/.nextflow/assets/mouzkolit/LexogeneUmiPipelineNextflow/bin
+Jun-14 14:04:03.370 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jun-14 14:04:03.376 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jun-14 14:04:03.403 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jun-14 14:04:03.409 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Jun-14 14:04:03.459 [main] DEBUG nextflow.Session - Session start
+Jun-14 14:04:03.762 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-14 14:04:03.852 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.852 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.856 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jun-14 14:04:03.861 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=62.7 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Jun-14 14:04:03.918 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.918 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.920 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.920 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.922 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.922 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.926 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.926 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.930 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.930 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.932 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.932 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.946 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.946 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.949 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-14 14:04:03.949 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-14 14:04:03.951 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: feature_count_files, ALIGN, indexing, fastqc, deduplicate, bbduk, INDEX, multiqc, dedup
+Jun-14 14:04:03.951 [main] DEBUG nextflow.Session - Igniting dataflow network (10)
+Jun-14 14:04:03.955 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > INDEX
+Jun-14 14:04:03.955 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastqc
+Jun-14 14:04:03.956 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > deduplicate
+Jun-14 14:04:03.956 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bbduk
+Jun-14 14:04:03.956 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ALIGN
+Jun-14 14:04:03.956 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > indexing
+Jun-14 14:04:03.957 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > dedup
+Jun-14 14:04:03.957 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /data/; pattern: *; options: [:]
+Jun-14 14:04:03.957 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > multiqc
+Jun-14 14:04:03.957 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > feature_count_files
+Jun-14 14:04:03.958 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jun-14 14:04:03.958 [main] DEBUG nextflow.Session - Session await
+Jun-14 14:04:03.960 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - No such file or directory: /data/ -- Skipping visit
+Jun-14 14:04:03.990 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=INDEX; work-dir=null
+  error [nextflow.exception.ProcessUnrecoverableException]: Not a valid path value: '../reference/transcriptome.fa'
+Jun-14 14:04:03.999 [Actor Thread 4] ERROR nextflow.processor.TaskProcessor - Error executing process > 'INDEX'
+
+Caused by:
+  Not a valid path value: '../reference/transcriptome.fa'
+
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+Jun-14 14:04:04.001 [Actor Thread 4] DEBUG nextflow.Session - Session aborted -- Cause: Not a valid path value: '../reference/transcriptome.fa'
+Jun-14 14:04:04.011 [Actor Thread 4] DEBUG nextflow.Session - The following nodes are still active:
+[process] INDEX
+  status=ACTIVE
+  port 0: (value) bound ; channel: transcriptome
+  port 1: (value) bound ; channel: reference
+  port 2: (cntrl) -     ; channel: $
+
+Jun-14 14:04:04.013 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jun-14 14:04:04.013 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jun-14 14:04:04.014 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=INDEX; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Jun-14 14:04:04.016 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Jun-14 14:04:04.211 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jun-14 14:04:04.229 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

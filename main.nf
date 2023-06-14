@@ -193,8 +193,19 @@ process feature_count_files {
 }
 
 
-workflow {
+process printBaseDir {
+    echo true
 
+    script:
+    """
+    echo 'Base directory: ${baseDir}'
+    """
+}
+
+
+workflow {
+    baseDir '.'
+    printBaseDir()
     index_ch = INDEX(params.genome_alignment, params.star_index)
     trial = fastqc(read_ch)
     path = deduplicate(read_ch)
