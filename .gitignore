@@ -7,3 +7,5 @@ multiqc/
 multiqc_data/
 alignments/
 reference/
+*.log
+.nextflow/
