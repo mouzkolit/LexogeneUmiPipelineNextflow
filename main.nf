@@ -1,15 +1,16 @@
-params.reads = "$projectDir/data/*"
-params.genome_alignment = "$projectDir/reference/transcriptome.fa"
-params.star_index = "$projectDir/reference/STAR/"
-params.multiqc = "$projectDir/multiqc"
+params.project_dir = "/home/data-science/Desktop/Lexogene_Analysis/"
+params.reads = "$params.project_dir/data/*"
+params.star = "$params.project_dir/Star"
+params.genome_alignment = "$params.project_dir/reference/transcriptome.fa"
+params.multiqc = "$params.project_dir/multiqc"
 params.lexogen = false
 params.adapter_seq = "$projectDir/reference/polyA.fa.gz"
 params.illumina_seq = "$projectDir/reference/truseq.fa.gz"
-params.genome_annotation = "$projectDir/reference/annotation.gtf"
-params.publish_dir = "$projectDir/quality/"
-params.aligning_path = "$projectDir/alignments/"
-params.outdir = "$projectDir/differential_expression/"
-params.diff_table = "$projectDir/Test/diff_table.csv"
+params.genome_annotation = "$params.project_dir/reference/annotation.gtf"
+params.publish_dir = "$params.project_dir/quality/"
+params.aligning_path = "$params.project_dir/alignments/"
+params.outdir = "$params.project_dir/differential_expression/"
+params.diff_table = "$params.project_dir/Test/diff_table.csv"
 
 // Define your input channel
 Channel
@@ -57,16 +58,18 @@ process INDEX {
 
     container { params.containers.star }
     cpus 8
+    publishDir params.star, mode: 'copy'
 
     input:
     path transcriptome
     path reference
-
+    
     output:
     path reference
 
     script:
     """
+    mkdir -p $params.star
     STAR --runThreadN $task.cpus --runMode genomeGenerate --genomeDir $reference --genomeFastaFiles $transcriptome 
     """
 }
@@ -178,7 +181,7 @@ process printBaseDir {
 
     script:
     """
-    echo 'Base directory: ${baseDir}'
+    echo 'Base directory: ${params.project_dir}'
     """
 }
 
@@ -203,13 +206,12 @@ process feature_count_files {
 
 
 workflow {
-
     printBaseDir()
-    index_ch = INDEX(params.genome_alignment, params.star_index)
+    index_ch = INDEX(params.genome_alignment, params.star)
     trial = fastqc(read_ch)
     path = deduplicate(read_ch)
     reads = bbduk(path)
-    bam = ALIGN(params.star_index, reads)
+    bam = ALIGN(index_ch, reads)
     read = indexing(bam.samples_bam)
     deduped = dedup(read)
     multiqc(deduped.collect())
