@@ -93,7 +93,7 @@ process deduplicate {
 
 process bbduk {
 
-    conda 'bbmap'
+    container {params.containers.conda}
     input:
     path(reads)
 
@@ -103,6 +103,8 @@ process bbduk {
 
     script:
     """
+    conda config --add channels bioconda
+    conda install -y bbmap
     bbduk.sh in=$reads out=bbduk_${reads}.fastq ref=$params.adapter_seq,$params.illumina_seq k=13 ktrim=r useshortkmers=t mink=5 qtrim=t trimq=10 minlength=20 
     """
 }
@@ -144,8 +146,7 @@ process ALIGN {
 
 process indexing {
 
-    conda "samtools"
-
+    container { params.containers.conda }
     input: 
     path read_bam
     
@@ -155,6 +156,8 @@ process indexing {
 
     script:
     """
+    conda config --add channels bioconda
+    conda install -y samtools
     samtools index $read_bam
     """
 
@@ -178,7 +181,6 @@ process dedup {
 
 process printBaseDir {
     echo true
-
     script:
     """
     echo 'Base directory: ${params.project_dir}'
@@ -188,7 +190,7 @@ process printBaseDir {
 
 process feature_count_files {
 
-    conda "bioconductor-DESeq2 bioconductor-Rsubread"
+    container { params.containers.conda }
     publishDir params.outdir, mode: 'copy'
 
     input: 
@@ -200,6 +202,8 @@ process feature_count_files {
 
     script:
     """
+    conda config --add channels bioconda
+    conda install -y bioconductor-DESeq2 bioconductor-Rsubread
     Rscript $baseDir/DESeq2.R $reads $annotation
     """
 }
